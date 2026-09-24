@@ -1,0 +1,8 @@
+Fig4a M0-Gamma-K0 at kz=5/16 (supercell reciprocal coords; M0=b_prim/2, K0=primitive K)
+30
+Line-mode
+Reciprocal
+  0.5  0.5  0.3125   ! M0
+  0.0  0.0  0.3125   ! Gamma
+  0.0  0.0  0.3125   ! Gamma
+  0.0  1.0  0.3125   ! K0

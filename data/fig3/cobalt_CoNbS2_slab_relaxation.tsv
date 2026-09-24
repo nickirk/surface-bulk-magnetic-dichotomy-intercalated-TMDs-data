@@ -1,0 +1,2 @@
+U_eV	E0_aafm_eV	E0_stripe_eV	dE_meV	dE_meV_per_Co	n_Co	note
+0.3	-575.87684	-575.84318	33.66	4.208	8	relaxation, smearing (not tetrahedron); superseded for dE by the tetrahedron statics in cobalt_slab_energetics.tsv

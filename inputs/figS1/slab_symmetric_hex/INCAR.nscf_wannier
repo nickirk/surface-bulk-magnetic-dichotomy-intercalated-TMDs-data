@@ -1,0 +1,55 @@
+ICHARG = 11
+LCHARG = .FALSE.
+LWAVE  = .FALSE.
+
+LWANNIER90     = .TRUE.
+LWRITE_MMN_AMN = .TRUE.
+NUM_WANN       = 109
+
+NCORE = 1
+KPAR  = 1
+
+ISMEAR = 1
+SIGMA  = 0.1
+PREC   = Accurate
+
+LORBIT = 11
+NBANDS = 180
+ENCUT  = 650
+
+GGA    = PE
+ISYM   = 2
+
+ISPIN   = 2
+LSORBIT = .FALSE.
+MAGMOM  = -4 +4   9*0.0   18*0.0
+
+LASPH      = .TRUE.
+LDAU       = .TRUE.
+LDAUTYPE   = 2
+LMAXMIX    = 4
+LDAUL      = 2 -1 -1
+LDAUU      = 0.3 0 0
+LDAUJ      = 0.0 0 0
+LDAUPRINT  = 1
+
+WANNIER90_WIN = "
+dis_win_min   = -10.0
+dis_win_max   =  10.0
+dis_froz_min  =   0.5
+dis_froz_max  =   4.5
+dis_num_iter  = 500
+num_iter      = 500
+
+guiding_centres = true
+write_hr        = true
+write_xyz       = false
+
+begin projections
+Fe:d
+Nb:d
+S:p
+end projections
+"
+
+LREAL = .FALSE.

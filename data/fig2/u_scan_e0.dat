@@ -1,0 +1,12 @@
+# Verified matched-cell PBE+U E0 totals supplied 2026-08-19--20.
+# Slab: 80 atoms / 8 Fe; source family slab80_sigma005_novdw.
+# Bulk: 40 atoms / 4 Fe; source family bulk40_algoall_matrix.
+# Delta-E convention for the figure: E(A-AFM) - E(stripe), in meV/Fe.
+# U_eV  slab_aafm_E0_eV  slab_stripe_E0_eV  bulk_aafm_E0_eV  bulk_stripe_E0_eV
+0.0  -587.79653  -587.79157  -295.85246  -295.93012
+0.3  -585.83357  -585.82769  -294.88321  -294.95201
+0.6  -583.93171  -583.92191  -293.93371  -294.00549
+0.9  -582.07898  -582.06751  -293.00631  -293.08482
+1.2  -580.27233  -580.25918  -292.09521  -292.18722
+1.5  -578.50817  -578.49340  -291.21956  -291.31150
+2.0  -575.65611  -575.63807  -289.80587  -289.89838

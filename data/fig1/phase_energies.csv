@@ -1,0 +1,17 @@
+material,phase,E0,E0_per_m_atom,mag,last_oszicar_line,normal_termination,ediff_reached,psmaxn_warning,zhegv_failed,stale_file_handle,bad_termination,delta_meV
+Fe1_3NbS2,aAFM,-147.89199,-73.945995,-0.0,1 F= -.14789199E+03 E0= -.14789199E+03  d E =0.000000E+00  mag=    -0.0000,True,True,False,False,False,False,23.20749999999805
+Fe1_3NbS2,FM,-147.85108,-73.92554,7.1701,1 F= -.14785108E+03 E0= -.14785108E+03  d E =0.000000E+00  mag=     7.1701,True,True,False,False,False,False,43.662499999996385
+Fe1_3NbS2,astrip,-295.87681,-73.9692025,0.0006,1 F= -.29587681E+03 E0= -.29587681E+03  d E =0.000000E+00  mag=     0.0006,True,False,False,False,False,False,0.0
+Fe1_3NbS2,zigzag,-591.69086,-73.9613575,0.0,1 F= -.59169086E+03 E0= -.59169086E+03  d E =0.000000E+00  mag=     0.0000,True,True,False,False,False,False,7.844999999989
+Co1_3NbS2,aAFM,-145.24137,-72.620685,0.0,1 F= -.14524137E+03 E0= -.14524137E+03  d E =0.000000E+00  mag=     0.0000,True,True,False,False,False,False,31.463750000000346
+Co1_3NbS2,FM,-145.22942,-72.61471,4.3395,1 F= -.14522942E+03 E0= -.14522942E+03  d E =0.000000E+00  mag=     4.3395,True,True,False,False,False,False,37.43874999999264
+Co1_3NbS2,astrip,-290.59534,-72.648835,-0.0001,1 F= -.29059534E+03 E0= -.29059534E+03  d E =0.000000E+00  mag=    -0.0001,True,True,False,False,False,False,3.313749999989568
+Co1_3NbS2,zigzag,-581.21719,-72.65214875,-0.0,1 F= -.58121719E+03 E0= -.58121719E+03  d E =0.000000E+00  mag=    -0.0000,True,True,False,False,False,False,0.0
+Co1_3TaS2,aAFM,-154.33254,-77.16627,0.0,1 F= -.15433254E+03 E0= -.15433254E+03  d E =0.000000E+00  mag=     0.0000,True,True,True,False,False,False,21.633750000006557
+Co1_3TaS2,FM,-154.32527,-77.162635,4.3627,1 F= -.15432527E+03 E0= -.15432527E+03  d E =0.000000E+00  mag=     4.3627,True,True,True,False,False,False,25.268750000009277
+Co1_3TaS2,astrip,-308.75061,-77.1876525,-0.0,1 F= -.30875061E+03 E0= -.30875061E+03  d E =0.000000E+00  mag=    -0.0000,True,True,True,False,False,False,0.2512500000051432
+Co1_3TaS2,zigzag,-617.50323,-77.18790375,-0.0,1 F= -.61750323E+03 E0= -.61750323E+03  d E =0.000000E+00  mag=    -0.0000,True,True,True,False,False,False,0.0
+Ni1_3NbS2,aAFM,-142.06189,-71.030945,-0.0,1 F= -.14206189E+03 E0= -.14206189E+03  d E =0.000000E+00  mag=    -0.0000,True,True,False,False,False,False,0.0
+Ni1_3NbS2,FM,-142.04086,-71.02043,3.0567,1 F= -.14204086E+03 E0= -.14204086E+03  d E =0.000000E+00  mag=     3.0567,True,True,False,False,False,False,10.514999999998054
+Ni1_3NbS2,astrip,-283.98557,-70.9963925,-0.0001,1 F= -.28398557E+03 E0= -.28398557E+03  d E =0.000000E+00  mag=    -0.0001,True,True,False,False,False,False,34.55250000000376
+Ni1_3NbS2,zigzag,-568.06184,-71.00773,-0.0,1 F= -.56806184E+03 E0= -.56806184E+03  d E =0.000000E+00  mag=    -0.0000,True,True,False,False,False,False,23.215000000007535

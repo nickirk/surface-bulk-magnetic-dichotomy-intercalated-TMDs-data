@@ -1,0 +1,6 @@
+system	level	E0_aafm_eV	E0_stripe_eV	dE_meV	dE_meV_per_Co	n_Co	aafm_phase_retained	note
+Co1/3NbS2	static, tetrahedron (ISMEAR=-5), on relaxed geometry	-576.45100	-576.43734	+13.66	+1.708	8	yes	same footing as the Fe slab U-series; stripe leg is the converged rerun
+Co1/3NbS2	relaxation, Gaussian sigma=0.05	-575.87684	-575.84318	+33.66	+4.208	8	yes	relaxation level; use the tetrahedron static for comparison with Fe
+Co1/3TaS2	relaxation, Gaussian sigma=0.05, damped magnetic mixing (AMIX_MAG=0.4, BMIX_MAG=0.01)	-612.36219	-612.37586	-13.67	-1.709	8	yes	relaxation level only; with standard mixing neither relaxation retained its seeded moments
+Co1/3TaS2	static, tetrahedron (ISMEAR=-5), on relaxed geometry	-612.77364	-612.96401	NA	NA	8	NO	A-AFM leg converges to a near-FM state (net 12.49; damped mixing gives the same, 12.51; NUPDOWN=0 does not converge) - no same-footing dE
+Co1/3TaS2	static, Gaussian sigma=0.05, on relaxed geometry	-612.90639	-612.96464	NA	NA	8	NO	A-AFM leg keeps 3 of 4 Co layers but the free-surface layer flips - no dE quoted

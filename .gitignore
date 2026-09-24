@@ -1,0 +1,14 @@
+# Never commit these: licensed, or too large for git
+POTCAR
+POTCAR.*
+*/POTCAR
+WAVECAR
+CHGCAR
+CHG
+vasprun.xml
+PROCAR
+
+# Figure outputs are written here and are not part of the data set
+output/
+__pycache__/
+*.pyc
