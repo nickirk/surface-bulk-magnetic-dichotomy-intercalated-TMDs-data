@@ -5,7 +5,7 @@ k_z = (5/16)(2 pi/c) on a 401 x 401 grid over +/-1.4 1/A:
 
     W90_DIR=<wannier dir> KZ_FRAC=0.3125 NK=401 python3 unfold_bulk_sym.py
 
-The eta field is then A_up(k) - A_up(-k) at E_F = 7.7670 eV with a 5 meV Gaussian
+The eta field is then A_up(k) - A_dn(k) (up = spin channel 1) at E_F = 7.7670 eV with a 5 meV Gaussian
 (scripts/fig4/plot_fig4bc_eta_maps.py --from-caches).
 """
 from __future__ import annotations

@@ -1,28 +1,36 @@
-ICHARG = 11
+ICHARG = 11           # read CHGCAR, do not update
 LCHARG = .FALSE.
 LWAVE  = .FALSE.
 
+# ── Wannier interface ─────────────────────────────────────────
 LWANNIER90     = .TRUE.
 LWRITE_MMN_AMN = .TRUE.
 NUM_WANN       = 76
+# Fe:d (2×5=10) + Nb:d (6×5=30) + S:p (12×3=36) = 76
 
+# VASP Wannier interface requires NCORE = 1
 NCORE = 1
-KPAR  = 1
+KPAR  = 2
 
-ISMEAR = 1
+# ── Electronic scheme ─────────────────────────────────────────
+ISMEAR = -5
 SIGMA  = 0.10
-PREC   = Accurate
+PREC   = Accurate      # match GS PREC so CHGCAR FFT grid agrees
 ENCUT  = 650
 NBANDS = 120
 LORBIT = 11
 
 GGA    = PE
-ISYM   = 2
+ISYM   = 0           # required: symmetry operations that swap the two Fe sublattices must not be used to rebuild the zone for wannier90
 
+# ── Spin / magnetism ──────────────────────────────────────────
 ISPIN   = 2
 LSORBIT = .FALSE.
+# A-AFM bulk: slab-consistent convention
+# Fe1 (z=3.04 Å, lower) ↓;  Fe2 (z=9.12 Å, upper) ↑.
 MAGMOM  = -4 +4   6*0.0   12*0.0
 
+# ── DFT + U ───────────────────────────────────────────────────
 LASPH      = .TRUE.
 LDAU       = .TRUE.
 LDAUTYPE   = 2
@@ -34,6 +42,8 @@ LDAUPRINT  = 1
 
 LREAL = .FALSE.
 
+# ── Wannier90 block (VASP-embedded) ───────────────────────────
+# E_F (bulk) ≈ 7.87 eV; dis_froz placed ~ E_F ± 2 eV.
 WANNIER90_WIN = "
 dis_win_min   =  -3.0
 dis_win_max   =  16.0
@@ -52,3 +62,7 @@ Nb:d
 S:p
 end projections
 "
+
+NGX = 48
+NGY = 48
+NGZ = 108

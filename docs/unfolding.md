@@ -29,7 +29,11 @@ The `eref` inside each driver only sets its own preview plot; the figures use th
    non-self-consistent `ICHARG = 11` run recomputes E_F on its own mesh, which here differs by about
    28 meV and visibly changes a Fermi surface.
 2. **Wannier preparation.** NSCF with `LWANNIER90 = .TRUE.` and `ISYM = 0`, from the SCF charge
-   density. Inputs: `inputs/fig4/b_bulk_aAFM_wannier/`, `inputs/fig4/c_slab_asym_Fe_terminated_hex/`,
+   density. `ISYM = 0` is required for the A-AFM bulk and the symmetric slab: with symmetry on, VASP
+   reduces the k-mesh with the operations that exchange the two Fe sublattices and then rebuilds the
+   rest of the zone for wannier90 without exchanging the spin channels, so half the zone carries the
+   wrong spin. Check the number of irreducible k-points in the OUTCAR against a time-reversal-only
+   count (bulk 12×12×6: 436; slabs 12×12×1: 74). Inputs: `inputs/fig4/b_bulk_aAFM_wannier/`, `inputs/fig4/c_slab_asym_Fe_terminated_hex/`,
    `inputs/figS1/slab_symmetric_hex/`.
 3. **wannier90.** Maximal localisation with disentanglement; windows are set relative to E_F. One
    Hamiltonian per spin, `wannier90.{1,2}_hr.dat`.
@@ -45,8 +49,9 @@ The `eref` inside each driver only sets its own preview plot; the figures use th
    the same primitive-atom type and orbital, r_α is the primitive-lattice translation of the atom
    hosting α, and N_sc = det M.
 6. **Broadening at E_F.** Gaussian in energy. σ = 0.05 eV for Fig. 3, spins summed. σ = 5 meV for
-   the η_z maps: η_z = A↑ − A↓ for the asymmetric slab; A↑(k) − A↑(−k) for the bulk; A↑(k) − A↑(g·k)
-   for the symmetric slab, with g the C₂ about the in-plane axis at the slab centre.
+   the η_z maps, η_z = A↑ − A↓ for all three. For the bulk, ↑ is spin channel 1 of the Wannier run;
+   the Fig. 4(a) band run started from a separately converged ground state with the channels
+   labelled the other way round, and its plotting script exchanges them so both panels agree.
 
 ### Drivers
 
@@ -56,7 +61,7 @@ The `eref` inside each driver only sets its own preview plot; the figures use th
 | `data/fig3/*_stripe_fermi_surface.npz` | `fig3_stripe/fs_worker320.py` (Slurm: `run_fs320.sh`) writes (E, P) on the nk = 181 grid; the map is the σ = 0.05 eV Gaussian of the spin-summed weight at E_F, as for A-AFM | 320-band Hamiltonians |
 | `data/fig4/eta_bulk_kz5_16_nk401.npz` | `fig4_bulk/unfold_bulk_sym.py` | `W90_DIR=<dir> KZ_FRAC=0.3125 NK=401` |
 | `data/fig4/eta_slab_asym_nk401.npz` | `fig4_slab_asym/eta_and_sharp_fs.py` | `W90_DIR=<dir> NK=401` |
-| `data/figS1/eta_symmetric_slab_nk401.npz` | `figS1_slab_sym/eta_and_sharp_fs.py`, then `rebuild_eta_full.py` | `W90_DIR=<dir> NK=401` |
+| `data/figS1/eta_symmetric_slab_nk401.npz` | `figS1_slab_sym/eta_and_sharp_fs.py` writes the spin-resolved spectra; `rebuild_eta_full.py` returns A↑ − A↓ (`eta_old`) and the single-channel check A↑(k) − A↑(g·k) | `W90_DIR=<dir> NK=401` |
 
 The Fig. 4 bulk and slab caches are turned into the stored η_z maps by
 `scripts/fig4/plot_fig4bc_eta_maps.py --from-caches BULK_CACHE SLAB_CACHE`.
@@ -87,7 +92,11 @@ To verify an M, derive A_prim = M⁻¹·A_sc and check M·A_prim = A_sc and that
 ### Reproduction checks
 
 - Rerunning the Fig. 3 A-AFM Co₁/₃NbS₂ driver reproduces the stored map to 1.4×10⁻¹² (peak 17.2).
-- The Fig. S1 map at 201×201 reproduces an independent earlier calculation to 3×10⁻¹¹. The 401 grid
-  contains the 201 grid, and the two agree to the same precision at all 40,401 shared points.
-- The Fig. 4 bulk 401 map is identical to a 201 calculation at the shared points; the slab agrees to
+- Fig. 4(c): the asymmetric-slab map is identical to a 201 calculation at the shared points, to
   1.5×10⁻¹⁴.
+- Fig. 4(b) and Fig. S1: the spin-exchange symmetry holds in the DFT eigenvalues on the full mesh,
+  E↓(k) = E↑(C₂z·k) for the bulk (to 0.000 meV) and E↓(k) = E↑(g·k) for the symmetric slab (0.15 meV
+  mean, 0.43 meV max, within ±0.3 eV of E_F), with g the C₂ about the in-plane axis at the slab centre.
+  The bulk map changes sign under a 60° rotation (correlation −0.97). A↑ − A↓ agrees with the
+  single-channel construction A↑(k) − A↑(O·k) to a correlation of 0.991 (bulk) and 0.89 (symmetric
+  slab; the difference comes from independent sub-meV interpolation errors in the two spin channels).

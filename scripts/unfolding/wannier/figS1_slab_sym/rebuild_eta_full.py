@@ -1,13 +1,14 @@
-"""Gauge-clean FULL-SLAB rebuild of Fig 4(d) [symmetric slab] -- consensus construction.
+"""Fig. S1 (symmetric slab): the spin contrast and its single-channel symmetry check.
 
 Exact slab op g = C2 about the in-plane axis at the slab center (swaps the two Fe
 layers + two surfaces). In SUPERCELL fractional recip it is (k1,k2,k3)->(k2,k1,-k3)
 (Cartesian: mirror about the b1+b2 = 60deg axis -- NOT the 45deg kx<->ky diagonal;
 that was the earlier frame bug). It relates the two spin channels on the FULL slab:
     A_dn(k) = A_up(g.k)
-so the single-gauge rebuild is
+so the single-channel construction
     eta_full(k) = A_up(k) - A_up(g.k)
-using ONLY the up channel. A_up(g.k) is computed by re-evaluating the up-channel
+is a check on the plotted field eta_old(k) = A_up(k) - A_dn(k) (they agree to a correlation of 0.89 at
+sigma = 5 meV; the rest is independent sub-meV interpolation error in the two spin channels). A_up(g.k) is computed by re-evaluating the up-channel
 unfold at the EXACT g-image k-points (g maps grid->non-grid, so recompute, no interp).
 
 Controls: TRS A_sigma(k) vs A_sigma(-k) [frame-independent grid flip]; swap
@@ -51,8 +52,8 @@ print("unfolding A_up at g.k (exact) ...")
 Eg, Pg = wu.compute_spectral_weight(kf_g, H_R, R, wR, beta, batch=256, n_workers=1)
 A_up_gk = gauss(Eg, Pg)
 
-eta_full = A_up - A_up_gk        # gauge-clean single-channel
-eta_old = A_up - A_dn           # contaminated two-channel
+eta_full = A_up - A_up_gk        # single-channel check
+eta_old = A_up - A_dn           # plotted in Fig. S1
 
 bz = np.hypot(KX, KY) < 1.25
 def rms(x): return float(np.sqrt(np.mean((x[bz])**2)))

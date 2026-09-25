@@ -1,9 +1,9 @@
 """
 PZ-unfolded sharp Fermi surface + η_z(k) analysis for the SYMMETRIC 2-Fe slab.
 
-This is the control: with σ_h symmetry restored about the slab midplane and
-[C₂⊥||i] exact, A↑(k) ≡ A↓(k) is symmetry-forced — η_z(k) should vanish to
-numerical precision.
+This is the control for Fig. 4(c): the two Fe layers are related by g, the C₂ about the in-plane
+axis at the slab centre combined with spin exchange, so A↓(k) = A↑(g·k). η_z = A↑ − A↓ therefore
+alternates in sign and has no net value; it does not vanish point by point.
 
 Same in-plane cell + M-matrix as the asymmetric hex task; only data paths
 and num_wann differ.

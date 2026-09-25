@@ -1,9 +1,7 @@
-
 ISTART = 0
 ICHARG = 2
 ENCUT  = 650
-ISMEAR = 1
-SIGMA  = 0.10
+ISMEAR = -5
 PREC   = Accurate
 LREAL  = .FALSE.
 EDIFF  = 1.0e-7

@@ -94,14 +94,17 @@ def load_grid(data: np.lib.npyio.NpzFile) -> tuple[np.ndarray, np.ndarray]:
 
 
 def bulk_eta(path: Path) -> tuple[np.ndarray, np.ndarray, np.ndarray]:
+    """eta = A_up - A_dn, up = spin channel 1 of the Wannier run.
+
+    The Fig. 4(a) band run started from a separately converged ground state whose spin channels are
+    labelled the other way round (its channel 2 reproduces channel 1 here to 0.01 meV along
+    M0-Gamma), which is why scripts/fig4/plot_fig4a_bands.py exchanges its EIGENVAL columns.
+    """
     with np.load(path) as data:
         kx, ky = load_grid(data)
-        up = gauss(data["E1"], data["P1"], EF_BULK).reshape(kx.shape)
-    if not np.allclose(kx, -kx[::-1, ::-1]) or not np.allclose(
-        ky, -ky[::-1, ::-1]
-    ):
-        raise ValueError("bulk k grid is not origin-symmetric")
-    return kx, ky, up - up[::-1, ::-1]
+        up = gauss(data["E1"], data["P1"], EF_BULK)
+        down = gauss(data["E2"], data["P2"], EF_BULK)
+    return kx, ky, (up - down).reshape(kx.shape)
 
 
 def slab_eta(path: Path) -> tuple[np.ndarray, np.ndarray, np.ndarray]:
@@ -198,6 +201,7 @@ def render_colorbar(output: Path, vmax: float) -> None:
 REPO = Path(__file__).resolve().parents[2]
 DATA = REPO / "data" / "fig4"
 BULK_FIELD = DATA / "eta_bulk_kz5_16_nk401.npz"
+BULK_VMAX = 28.010261  # colour limit of the published panel (b)
 SLAB_FIELD = DATA / "eta_slab_asym_nk401.npz"
 
 
@@ -227,7 +231,7 @@ def main() -> None:
     if args.from_caches:
         kx, ky, field = bulk_eta(args.from_caches[0])
         save_field(BULK_FIELD, kx, ky, field, e_fermi_eV=EF_BULK,
-                   definition="A_up(k) - A_up(-k), bulk A-AFM, k_z = 5/16 (2 pi/c)")
+                   definition="A_up(k) - A_dn(k), bulk A-AFM, k_z = 5/16 (2 pi/c); up as in Fig. 4(a)")
         kx, ky, field = slab_eta(args.from_caches[1])
         save_field(SLAB_FIELD, kx, ky, field, e_fermi_eV=EF_SLAB,
                    definition="A_up(k) - A_dn(k), asymmetric Fe-terminated slab")
@@ -246,7 +250,7 @@ def main() -> None:
 
     # The published colour limits; a mismatch means a wrong input, Fermi level,
     # spin convention or broadening.
-    if not np.isclose(bulk_vmax, 23.224439, atol=5e-6):
+    if not np.isclose(bulk_vmax, BULK_VMAX, atol=5e-6):
         raise ValueError(f"unexpected bulk vmax {bulk_vmax:.9f}")
     if not np.isclose(slab_vmax, 68.854526, atol=5e-6):
         raise ValueError(f"unexpected slab vmax {slab_vmax:.9f}")

@@ -6,9 +6,10 @@ Fig. 4(b,c) (scripts/fig4/plot_fig4bc_eta_maps.py): sigma = 5 meV at the slab's 
 bicubic interpolation, primitive-hexagon crop, and this panel's own symmetric colour limit
 (99.5th percentile of |eta| inside |k| < 1.3 1/A).
 
-The field is eta(k) = A_up(k) - A_up(g.k), with g the C2 rotation about the in-plane axis at the
-slab centre, which maps one spin channel of the symmetric slab onto the other. It is built from the
-Wannier Hamiltonians by scripts/unfolding/wannier/figS1_slab_sym/.
+The field is eta(k) = A_up(k) - A_dn(k), the same definition as Fig. 4(c). It is built from the
+Wannier Hamiltonians by scripts/unfolding/wannier/figS1_slab_sym/ (the spin-resolved spectra of
+eta_and_sharp_fs.py; rebuild_eta_full.py also returns this field as eta_old, together with the
+single-channel check A_up(k) - A_up(g.k), g = C2 about the in-plane axis at the slab centre).
 
     python3 scripts/figS1/plot_figS1_symmetric_slab.py   # from the repository root
 """

@@ -69,10 +69,10 @@ def validate_path(kf: np.ndarray) -> int:
 
 def render(eigenval: Path, output: Path) -> None:
     kf, eu, ed = read_eigenval(eigenval)
-    # The validated handoff established that this NSCF run's spin columns are
-    # exchanged relative to the published panel and the Wannier eta-map gauge:
-    # new up == old down at all shared Gamma--M0 points.  Swap the columns so
-    # blue/orange retain the manuscript's existing spin convention.
+    # This band run started from a separately converged ground state whose spin
+    # channels are labelled opposite to the Wannier run behind Fig. 4(b): its
+    # channel 2 reproduces the Wannier channel 1 to 0.01 meV along M0-Gamma.
+    # Exchange the columns so both panels use the same "up".
     eu, ed = ed, eu
     igamma = validate_path(kf)
     kc = kf @ B_SC

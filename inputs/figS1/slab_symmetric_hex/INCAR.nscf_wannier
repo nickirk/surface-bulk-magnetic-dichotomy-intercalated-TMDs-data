@@ -7,7 +7,7 @@ LWRITE_MMN_AMN = .TRUE.
 NUM_WANN       = 109
 
 NCORE = 1
-KPAR  = 1
+KPAR  = 4
 
 ISMEAR = 1
 SIGMA  = 0.1
@@ -18,7 +18,7 @@ NBANDS = 180
 ENCUT  = 650
 
 GGA    = PE
-ISYM   = 2
+ISYM   = 0           # required: symmetry operations that swap the two Fe sublattices must not be used to rebuild the zone for wannier90
 
 ISPIN   = 2
 LSORBIT = .FALSE.
