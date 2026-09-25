@@ -1,5 +1,5 @@
 """
-Overlay plotter for ARPES (greys) + optional DFT ribbons (cyan/orange),
+Overlay plotter for ARPES (greys) + optional DFT ribbons (red up / blue down; orange when spin-summed),
 restored from the e2b7a12 version of scripts/plot_fns_arpes.py and
 extended with two toggles needed by Fig. 1's bottom row:
 
@@ -80,7 +80,7 @@ def plot_arpes_overlay(dft_path=None, out_name="arpes_overlay",
                       show_ylabel_text=True, show_colorbar=True,
                       show_yticks=True, show_xlabel_text=True,
                       spin_channels=None, single_spin_color=None):
-    """Render an ARPES grey image with optional cyan/orange DFT ribbons.
+    """Render an ARPES grey image with optional spin-coloured DFT ribbons.
 
     dft_path         Path to sw.npy, or None for ARPES-only.
     out_name         File stem (saved to manuscripts/figures/Fe1_3NbS2/).
@@ -163,7 +163,7 @@ def plot_arpes_overlay(dft_path=None, out_name="arpes_overlay",
             kdist = np.r_[0, np.cumsum(np.linalg.norm(np.diff(kpt_c, axis=0), axis=1))]
 
             colors = (["xkcd:bright orange", "xkcd:bright orange"]
-                      if combine_spin else ["cyan", "xkcd:bright orange"])
+                      if combine_spin else ["#d62728", "#1f77b4"])  # red up, blue down
             # spin_channels: which spin indices to draw (VASP order, 0 = up).
             # Used for Fig 1(c) A-AFM, where only one channel is shown so the
             # structural (not altermagnetic) Gamma-M splitting is not on display.

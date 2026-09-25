@@ -1,0 +1,8 @@
+Symmetric slab M0-Gamma-K0 (supercell reciprocal coords; same path as Fig 4(a), kz = 0)
+30
+Line-mode
+Reciprocal
+  0.5  0.5  0.0   ! M0
+  0.0  0.0  0.0   ! Gamma
+  0.0  0.0  0.0   ! Gamma
+  0.0  1.0  0.0   ! K0

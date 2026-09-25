@@ -1,0 +1,8 @@
+Symmetric slab M0-Gamma-P, P = midpoint of the M0-K0 zone edge (supercell reciprocal coords, kz = 0)
+30
+Line-mode
+Reciprocal
+  0.5   0.5   0.0   ! M0
+  0.0   0.0   0.0   ! Gamma
+  0.0   0.0   0.0   ! Gamma
+  0.25  0.75  0.0   ! P

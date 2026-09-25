@@ -29,17 +29,18 @@ final arrangement of panels were composed separately.
 | Fig. 4 | (a) | `python3 scripts/fig4/plot_fig4a_bands.py data/fig4/panel_a_bulk_M0GK0_kz5_16_EIGENVAL output/fig4/fig4a_bands.pdf` | raw VASP EIGENVAL |
 | | (b), (c) | `python3 scripts/fig4/plot_fig4bc_eta_maps.py` | spin-contrast maps `eta_bulk_kz5_16_nk401.npz`, `eta_slab_asym_nk401.npz` |
 | Fig. S1 | | `python3 scripts/figS1/plot_figS1_symmetric_slab.py` | `eta_symmetric_slab_nk401.npz` |
-| Fig. S2 | (a), (b) | `python3 scripts/figS2/plot_figS2_hypersensitivity.py` | `data/fig1/aafm_unfolded_sw.npy` (as-received structure), `data/figS2/aafm_symmetrized_unfolded_sw.npy` |
+| Fig. S2 | (a), (b), (c) | `python3 scripts/figS2/plot_figS2_slab_bands.py {sym_M0GK0,asym_M0GK0,sym_M0GP} data/figS2/<EIGENVAL> output/figS2/<name>.pdf` | raw VASP EIGENVAL of the slab band runs: `slab_sym_M0GK0_EIGENVAL`, `slab_asym_M0GK0_EIGENVAL`, `slab_sym_M0GP_EIGENVAL` (inputs in `inputs/figS2/`) |
+| Fig. S3 | (a), (b) | `python3 scripts/figS3/plot_figS3_hypersensitivity.py` | `data/fig1/aafm_unfolded_sw.npy` (as-received structure), `data/figS3/aafm_symmetrized_unfolded_sw.npy` |
 
 Every script above was run on this repository as released and compared pixel by pixel with the
 renders of the scripts that produced the manuscript figures: 0 differing pixels in every panel.
 
 ## How the derived data were produced
 
-- **Band structures, Fig. 1(c) and Fig. S2:** the `*_sw.npy` files hold the plane-wave unfolded
+- **Band structures, Fig. 1(c) and Fig. S3:** the `*_sw.npy` files hold the plane-wave unfolded
   spectral weight of the supercell wavefunctions (VaspBandUnfolding; Popescu & Zunger,
   Phys. Rev. B 85, 085201 (2012)), made by the drivers in `scripts/unfolding/planewave/` from the
-  band calculations in `inputs/fig1/c_*` and `inputs/figS2/`. Each array is (spin, k-point, band,
+  band calculations in `inputs/fig1/c_*` and `inputs/figS3/`. Each array is (spin, k-point, band,
   [energy, weight]).
 - **Fermi surfaces, Fig. 3, and spin-contrast maps, Fig. 4(b,c) and Fig. S1:** Wannier-orbital
   unfolding (Ku, Berlijn & Lee, Phys. Rev. Lett. 104, 216401 (2010)). The Wannier Hamiltonians are too
@@ -47,6 +48,9 @@ renders of the scripts that produced the manuscript figures: 0 differing pixels 
   and the checks, and `scripts/unfolding/wannier/` holds the code. The maps in `data/` are the output
   of that code; `scripts/fig4/plot_fig4bc_eta_maps.py --from-caches` rebuilds the Fig. 4 maps from
   the unfolded spectra.
+- **Slab band structures, Fig. S2:** raw spin-polarized eigenvalues from non-self-consistent runs on the
+  ground-state charge densities of the Fig. 4(c) and Fig. S1 slabs (`inputs/figS2/`); spin channel 1 is plotted
+  as up. P = (5/12, 1/6, 0) in primitive reciprocal coordinates, the midpoint of the M0-K0 zone edge.
 - **Energies, Figs. 1(b) and 2(b):** `E0` from the final OSZICAR line of each calculation; see
   `docs/conventions.md` for signs and normalisation.
 

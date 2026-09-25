@@ -29,7 +29,7 @@ A_SC = np.array(
 B_SC = 2 * np.pi * np.linalg.inv(A_SC).T
 EF = 7.7670
 YLIM = (-2.54, 0.26)
-UP, DN = "#205493", "#c04000"
+UP, DN = "#d62728", "#1f77b4"  # red up, blue down, as the structure arrows and eta maps
 
 
 def read_eigenval(path: Path) -> tuple[np.ndarray, np.ndarray, np.ndarray]:

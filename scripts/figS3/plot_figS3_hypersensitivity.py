@@ -1,15 +1,15 @@
 #!/usr/bin/env python3
-"""SI Fig. S2: A-AFM Gamma-K0 bands on the ARPES cut, as-received vs symmetrized structure.
+"""SI Fig. S3: A-AFM Gamma-K0 bands on the ARPES cut, as-received vs symmetrized structure.
 
 Panel (a) uses the as-received (experimental) structure, the same unfolded spectral weight as
 Fig. 1(c); panel (b) uses the structure symmetrized to P6_322. Each panel is rendered by
 scripts/fig1/plot_fig1c_arpes_overlay.plot_arpes_overlay with that calculation's own
 ground-state Fermi level, then the two are placed side by side.
 
-    python3 scripts/figS2/plot_figS2_hypersensitivity.py   # from the repository root
+    python3 scripts/figS3/plot_figS3_hypersensitivity.py   # from the repository root
 
 Writes output/fig1/appendix_aafm_{unsym_split,sym_degenerate}.png (the panels) and
-output/figS2/figS2_hypersensitivity.{pdf,png}.
+output/figS3/figS3_hypersensitivity.{pdf,png}.
 """
 
 from pathlib import Path
@@ -30,7 +30,7 @@ from PIL import Image  # noqa: E402
 DATA = REPO / "data"
 PANEL_UNSYM = "appendix_aafm_unsym_split"
 PANEL_SYM = "appendix_aafm_sym_degenerate"
-OUT = REPO / "output" / "figS2" / "figS2_hypersensitivity"
+OUT = REPO / "output" / "figS3" / "figS3_hypersensitivity"
 
 
 def render_panels() -> None:
@@ -43,7 +43,7 @@ def render_panels() -> None:
     )
     # (b) structure symmetrized to P6_322, with that run's ground-state E_F.
     plot_arpes_overlay(
-        dft_path=DATA / "figS2" / "aafm_symmetrized_unfolded_sw.npy",
+        dft_path=DATA / "figS3" / "aafm_symmetrized_unfolded_sw.npy",
         out_name=PANEL_SYM,
         e_fermi=7.7670,
         show_colorbar=False,

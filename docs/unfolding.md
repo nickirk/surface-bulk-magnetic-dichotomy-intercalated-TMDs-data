@@ -4,12 +4,12 @@ Two unfolding methods are used.
 
 | Figure | Quantity | Method |
 |---|---|---|
-| Fig. 1(c), Fig. S2 | band structures on the ARPES cut | plane-wave unfolding of the supercell wavefunctions (VaspBandUnfolding; Popescu–Zunger weight) |
+| Fig. 1(c), Fig. S3 | band structures on the ARPES cut | plane-wave unfolding of the supercell wavefunctions (VaspBandUnfolding; Popescu–Zunger weight) |
 | Fig. 3 | Fermi surfaces of Co₁/₃NbS₂ and Co₁/₃TaS₂ | Wannier-orbital unfolding |
 | Fig. 4(b,c), Fig. S1 | spin contrast η_z at E_F | Wannier-orbital unfolding |
 | Fig. 4(a) | bulk bands on the primitive path | none: raw VASP eigenvalues |
 
-## Plane-wave unfolding (Fig. 1(c), Fig. S2)
+## Plane-wave unfolding (Fig. 1(c), Fig. S3)
 
 Drivers in `scripts/unfolding/planewave/`, run in the band-calculation directory next to its WAVECAR,
 with VaspBandUnfolding (github.com/QijingZheng/VaspBandUnfolding) importable. Each builds the k-path,
@@ -19,7 +19,7 @@ writes the supercell KPOINTS used by the band run, and saves `sw.npy` (spin, k, 
 |---|---|---|---|
 | `data/fig1/aafm_unfolded_sw.npy` | `fig1c_aafm_unfold_calc.py` | `inputs/fig1/c_aafm_bands` (SCF: `c_aafm_ground_state`) | 7.730112 eV |
 | `data/fig1/stripe_unfolded_sw.npy` | `fig1c_stripe_unfold_calc.py` | `inputs/fig1/c_stripe_bands` (SCF: `c_stripe_ground_state`) | 8.66907 eV |
-| `data/figS2/aafm_symmetrized_unfolded_sw.npy` | `figS2_symmetrized_unfold_calc.py` | `inputs/figS2/symmetrized_bands` (SCF: `symmetrized_ground_state`) | 7.7670 eV |
+| `data/figS3/aafm_symmetrized_unfolded_sw.npy` | `figS3_symmetrized_unfold_calc.py` | `inputs/figS3/symmetrized_bands` (SCF: `symmetrized_ground_state`) | 7.7670 eV |
 
 The `eref` inside each driver only sets its own preview plot; the figures use the Fermi levels above.
 

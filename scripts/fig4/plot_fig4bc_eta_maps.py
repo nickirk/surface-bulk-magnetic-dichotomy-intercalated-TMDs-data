@@ -1,7 +1,7 @@
 """Render the Fig. 4(b,c) spin-contrast maps and their colour bars.
 
 sigma = 5 meV Gaussian at each calculation's ground-state E_F; the colour limit of each panel is the
-99.5th percentile of |eta| inside |k| < 1.3 1/A; 128-level #205493 -> #ffffff -> #c04000 colour map;
+99.5th percentile of |eta| inside |k| < 1.3 1/A; 128-level #1f77b4 -> #ffffff -> #d62728 colour map;
 bicubic interpolation; the maps are cropped to the primitive hexagon on its physical bounding box.
 """
 
@@ -43,7 +43,7 @@ A_PRIM = np.array(
 def make_cmap() -> LinearSegmentedColormap:
     cmap = LinearSegmentedColormap.from_list(
         "bwr_alt",
-        [(0, "#205493"), (0.5, "#ffffff"), (1, "#c04000")],
+        [(0, "#1f77b4"), (0.5, "#ffffff"), (1, "#d62728")],  # blue = down, red = up, as the structure arrows
         N=128,
     )
     cmap.set_over("#3d0000")
