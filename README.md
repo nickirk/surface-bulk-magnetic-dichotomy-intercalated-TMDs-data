@@ -24,6 +24,7 @@ final arrangement of panels were composed separately.
 | Fig. 1 | (b) | `python3 scripts/fig1/plot_fig1b_phase_energies.py --from-csv data/fig1/phase_energies.csv --out-dir output/fig1` | `phase_energies.csv` |
 | | (c) | `python3 scripts/fig1/plot_fig1c_arpes_overlay.py` | ARPES cut `arpes_FNS030n2_88combine.txt`; unfolded bands `aafm_unfolded_sw.npy`, `stripe_unfolded_sw.npy` |
 | Fig. 2 | (b) | `python3 scripts/fig2/plot_fig2b_u_scan.py` | `u_scan_e0.dat` (tables: `bulk_useries.tsv`, `slab_useries.tsv`, `bulk_u03_reseed.tsv`) |
+| | (c), (d) | `python3 scripts/fig2/plot_fig2cd.py` | `fig2c_surface_order_energies.tsv`; `fig2d_icohp_per_bond.tsv`, produced by `scripts/fig2/icohp_per_bond.py` from the LOBSTER output in `data/fig2/icohp/` |
 | Fig. 3 | (a–d) | first build the experimental maps (below), then `python3 scripts/fig3/plot_fig3_fermi_surfaces.py` | calculated maps `*_fermi_surface.npz`; cells `*_POSCAR_PRIM/SUPER`. Surface energetics: `cobalt_*.tsv` |
 | Fig. 4 | (a) | `python3 scripts/fig4/plot_fig4a_bands.py data/fig4/panel_a_bulk_M0GK0_kz5_16_EIGENVAL output/fig4/fig4a_bands.pdf` | raw VASP EIGENVAL |
 | | (b), (c) | `python3 scripts/fig4/plot_fig4bc_eta_maps.py` | spin-contrast maps `eta_bulk_kz5_16_nk401.npz`, `eta_slab_asym_nk401.npz` |
@@ -35,7 +36,8 @@ final arrangement of panels were composed separately.
 
 Every script above was run on this repository as released and compared pixel by pixel with the
 renders of the scripts that produced the manuscript figures: 0 differing pixels in every panel, except
-Fig. S2(b). Its script plots the same fitted values as the published panel with a different layout.
+Fig. 2 and Fig. S2(b). Their published panels were restyled after these renders; the scripts plot the
+same values.
 
 ## How the derived data were produced
 
@@ -55,7 +57,10 @@ Fig. S2(b). Its script plots the same fitted values as the published panel with 
 - **Slab band structures, Fig. S4:** raw spin-polarized eigenvalues from non-self-consistent runs on the
   ground-state charge densities of the Fig. 4(c) and Fig. S3 slabs (`inputs/figS4/`); spin channel 1 is plotted
   as up. P = (5/12, 1/6, 0) in primitive reciprocal coordinates, the midpoint of the M0-K0 zone edge.
-- **Energies, Figs. 1(b) and 2(b):** `E0` from the final OSZICAR line of each calculation; see
+- **Bond strengths, Fig. 2(d):** −ICOHP per Fe–S and Fe–Nb bond from LOBSTER (pbeVaspFit2015 basis;
+  `inputs/fig2/icohp/lobsterin`) on the A-AFM bulk cell and the unrelaxed and relaxed Fe-terminated
+  slabs at U = 0.3 eV, averaged over the bonds of bulk Fe or of the two surface Fe.
+- **Energies, Figs. 1(b), 2(b) and 2(c):** `E0` from the final OSZICAR line of each calculation; see
   `docs/conventions.md` for signs and normalisation.
 
 ## Notes

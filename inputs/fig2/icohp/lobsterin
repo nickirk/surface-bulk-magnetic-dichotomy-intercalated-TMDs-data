@@ -1,0 +1,9 @@
+COHPstartEnergy -15
+COHPendEnergy 5
+usebasisset pbeVaspFit2015
+basisFunctions Fe 3s 3p 3d 4s
+basisFunctions Nb 4s 4p 4d 5s
+basisFunctions S 3s 3p
+cohpGenerator from 1.8 to 2.7 type Fe type S orbitalWise
+cohpGenerator from 2.6 to 3.3 type Fe type Nb orbitalWise
+cohpGenerator from 2.3 to 2.7 type Nb type S

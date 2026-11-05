@@ -1,0 +1,22 @@
+# Fig. 2(c): energies of four orders of the upper two Fe layers (lower two Fe layers fixed in stripe order).
+# Fe-terminated 80-atom slab: E - E(A-AFM) in meV per cell, as in Table S8 (PBE+U U = 0.3 eV with tetrahedron
+# integration; r2SCAN without U on the PBE+U-relaxed geometries). NbS2-terminated 98-atom slab: total energies
+# E0 (eV) of the relaxed PBE+U tetrahedron single points, lowest solution found for each order.
+# Fig. 2(c) plots E - E(stripe) per Fe (eight Fe in either slab).
+block	order	value	unit
+Fe-term_unrelaxed	A-AFM	0	meV/cell_vs_AAFM
+Fe-term_unrelaxed	stripe	-22.3	meV/cell_vs_AAFM
+Fe-term_unrelaxed	FM1	-14.6	meV/cell_vs_AAFM
+Fe-term_unrelaxed	FM2	69.1	meV/cell_vs_AAFM
+Fe-term_relaxed	A-AFM	0	meV/cell_vs_AAFM
+Fe-term_relaxed	stripe	5.9	meV/cell_vs_AAFM
+Fe-term_relaxed	FM1	33.5	meV/cell_vs_AAFM
+Fe-term_relaxed	FM2	164.0	meV/cell_vs_AAFM
+Fe-term_r2SCAN	A-AFM	0	meV/cell_vs_AAFM
+Fe-term_r2SCAN	stripe	17.35	meV/cell_vs_AAFM
+Fe-term_r2SCAN	FM1	45.0	meV/cell_vs_AAFM
+Fe-term_r2SCAN	FM2	140.8	meV/cell_vs_AAFM
+NbS2-term_relaxed	A-AFM	-719.63258	eV_E0
+NbS2-term_relaxed	stripe	-719.72303	eV_E0
+NbS2-term_relaxed	FM1	-719.67901	eV_E0
+NbS2-term_relaxed	FM2	-719.57284	eV_E0

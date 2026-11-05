@@ -1,0 +1,7 @@
+system	bond	bonds_per_Fe	d_mean_A	minus_ICOHP_per_bond_eV	dz2_dz2_part_eV
+bulk	Fe-S	6	2.431	1.578	
+bulk	Fe-Nb	2	3.054	0.590	0.184
+surface_unrelaxed	Fe-S	3	2.431	1.406	
+surface_unrelaxed	Fe-Nb	1	3.054	0.473	0.212
+surface_relaxed	Fe-S	3	2.236	2.058	
+surface_relaxed	Fe-Nb	1	2.730	1.052	0.408
