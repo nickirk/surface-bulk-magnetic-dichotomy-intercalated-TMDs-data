@@ -1,4 +1,4 @@
-"""Fig. S3 (symmetric slab): the spin contrast and its single-channel symmetry check.
+"""Fig. S2 (symmetric slab): the spin contrast and its single-channel symmetry check.
 
 Exact slab op g = C2 about the in-plane axis at the slab center (swaps the two Fe
 layers + two surfaces). In SUPERCELL fractional recip it is (k1,k2,k3)->(k2,k1,-k3)
@@ -53,7 +53,7 @@ Eg, Pg = wu.compute_spectral_weight(kf_g, H_R, R, wR, beta, batch=256, n_workers
 A_up_gk = gauss(Eg, Pg)
 
 eta_full = A_up - A_up_gk        # single-channel check
-eta_old = A_up - A_dn           # plotted in Fig. S3
+eta_old = A_up - A_dn           # plotted in Fig. S2
 
 bz = np.hypot(KX, KY) < 1.25
 def rms(x): return float(np.sqrt(np.mean((x[bz])**2)))

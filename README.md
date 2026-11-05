@@ -7,7 +7,7 @@ figures themselves are not included; they are published with the article.
     data/<figure>/       the numbers each figure is drawn from
     scripts/<figure>/    the scripts that draw them
     scripts/unfolding/   plane-wave and Wannier-orbital unfolding used to produce the band, Fermi-surface and spin-contrast data
-    scripts/structures/  builders for the slab structures used in Fig. 4 and Fig. S3
+    scripts/structures/  builders for the slab structures used in Fig. 4 and Fig. S2
     inputs/<figure>/     VASP inputs (INCAR, KPOINTS, POSCAR; wannier90.win) for every calculation behind a figure
     docs/                conventions.md (signs, normalisation, energies); unfolding.md (methods)
 
@@ -28,34 +28,34 @@ final arrangement of panels were composed separately.
 | Fig. 3 | (a–d) | first build the experimental maps (below), then `python3 scripts/fig3/plot_fig3_fermi_surfaces.py` | calculated maps `*_fermi_surface.npz`; cells `*_POSCAR_PRIM/SUPER`. Surface energetics: `cobalt_*.tsv` |
 | Fig. 4 | (a) | `python3 scripts/fig4/plot_fig4a_bands.py data/fig4/panel_a_bulk_M0GK0_kz5_16_EIGENVAL output/fig4/fig4a_bands.pdf` | raw VASP EIGENVAL |
 | | (b), (c) | `python3 scripts/fig4/plot_fig4bc_eta_maps.py` | spin-contrast maps `eta_bulk_kz5_16_nk401.npz`, `eta_slab_asym_nk401.npz` |
-| Fig. S2 | (b) | `python3 scripts/figS2/plot_figS2b_J_fit.py` | `J_fit_results.npz`, produced by `scripts/figS2/fit_J_heisenberg.py` from the magnetic configurations in `inputs/figS2/heisenberg_fit/` |
-| Fig. S3 | | `python3 scripts/figS3/plot_figS3_symmetric_slab.py` | `eta_symmetric_slab_nk401.npz` |
-| Fig. S4 | (a), (b), (c) | `python3 scripts/figS4/plot_figS4_slab_bands.py {sym_M0GK0,asym_M0GK0,sym_M0GP} data/figS4/<EIGENVAL> output/figS4/<name>.pdf` | raw VASP EIGENVAL of the slab band runs: `slab_sym_M0GK0_EIGENVAL`, `slab_asym_M0GK0_EIGENVAL`, `slab_sym_M0GP_EIGENVAL` (inputs in `inputs/figS4/`) |
-| Fig. S5 | (a), (b) | `python3 scripts/figS5/plot_figS5_hypersensitivity.py` | `data/fig1/aafm_unfolded_sw.npy` (as-received structure), `data/figS5/aafm_symmetrized_unfolded_sw.npy` |
+| Fig. S2 | | `python3 scripts/figS2/plot_figS2_symmetric_slab.py` | `eta_symmetric_slab_nk401.npz` |
+| Fig. S3 | (a), (b), (c) | `python3 scripts/figS3/plot_figS3_slab_bands.py {sym_M0GK0,asym_M0GK0,sym_M0GP} data/figS3/<EIGENVAL> output/figS3/<name>.pdf` | raw VASP EIGENVAL of the slab band runs: `slab_sym_M0GK0_EIGENVAL`, `slab_asym_M0GK0_EIGENVAL`, `slab_sym_M0GP_EIGENVAL` (inputs in `inputs/figS3/`) |
+| Fig. S4 | (a), (b) | `python3 scripts/figS4/plot_figS4_hypersensitivity.py` | `data/fig1/aafm_unfolded_sw.npy` (as-received structure), `data/figS4/aafm_symmetrized_unfolded_sw.npy` |
+| Fig. S5 | (b) | `python3 scripts/figS5/plot_figS5b_J_fit.py` | `J_fit_results.npz`, produced by `scripts/figS5/fit_J_heisenberg.py` from the magnetic configurations in `inputs/figS5/heisenberg_fit/` |
 | Fig. S6 | | `python3 scripts/figS6/plot_figS6_surface_orbital_bands.py` | ARPES cut as in Fig. 1(c); `slab_aafm_unfolded_sw.npy`, `slab_aafm_toplayer_orbital_weights.npz` |
 
 Every script above was run on this repository as released and compared pixel by pixel with the
 renders of the scripts that produced the manuscript figures: 0 differing pixels in every panel, except
-Fig. 2 and Fig. S2(b). Their published panels were restyled after these renders; the scripts plot the
+Fig. 2 and Fig. S5(b). Their published panels were restyled after these renders; the scripts plot the
 same values.
 
 ## How the derived data were produced
 
-- **Band structures, Fig. 1(c), Fig. S5 and Fig. S6:** the `*_sw.npy` files hold the plane-wave unfolded
+- **Band structures, Fig. 1(c), Fig. S4 and Fig. S6:** the `*_sw.npy` files hold the plane-wave unfolded
   spectral weight of the supercell wavefunctions (VaspBandUnfolding; Popescu & Zunger,
   Phys. Rev. B 85, 085201 (2012)), made by the drivers in `scripts/unfolding/planewave/` from the
-  band calculations in `inputs/fig1/c_*`, `inputs/figS5/` and `inputs/figS6/`. Each array is (spin, k-point, band,
+  band calculations in `inputs/fig1/c_*`, `inputs/figS4/` and `inputs/figS6/`. Each array is (spin, k-point, band,
   [energy, weight]). For Fig. S6 the weights are multiplied by PROCAR projections onto the top-layer
   Fe d_z2, d_xz, d_yz; S p_z; and Nb d_z2, d_xy, d_x2-y2 orbitals (same driver). Its ground state is
   `inputs/fig2/slab_U0.3_aafm`.
-- **Fermi surfaces, Fig. 3, and spin-contrast maps, Fig. 4(b,c) and Fig. S3:** Wannier-orbital
+- **Fermi surfaces, Fig. 3, and spin-contrast maps, Fig. 4(b,c) and Fig. S2:** Wannier-orbital
   unfolding (Ku, Berlijn & Lee, Phys. Rev. Lett. 104, 216401 (2010)). The Wannier Hamiltonians are too
   large to include; `docs/unfolding.md` gives the workflow, the supercell matrices, the Fermi levels
   and the checks, and `scripts/unfolding/wannier/` holds the code. The maps in `data/` are the output
   of that code; `scripts/fig4/plot_fig4bc_eta_maps.py --from-caches` rebuilds the Fig. 4 maps from
   the unfolded spectra.
-- **Slab band structures, Fig. S4:** raw spin-polarized eigenvalues from non-self-consistent runs on the
-  ground-state charge densities of the Fig. 4(c) and Fig. S3 slabs (`inputs/figS4/`); spin channel 1 is plotted
+- **Slab band structures, Fig. S3:** raw spin-polarized eigenvalues from non-self-consistent runs on the
+  ground-state charge densities of the Fig. 4(c) and Fig. S2 slabs (`inputs/figS3/`); spin channel 1 is plotted
   as up. P = (5/12, 1/6, 0) in primitive reciprocal coordinates, the midpoint of the M0-K0 zone edge.
 - **Bond strengths, Fig. 2(d):** −ICOHP per Fe–S and Fe–Nb bond from LOBSTER (pbeVaspFit2015 basis;
   `inputs/fig2/icohp/lobsterin`) on the A-AFM bulk cell and the unrelaxed and relaxed Fe-terminated

@@ -1,4 +1,4 @@
-"""SI Fig. S2(b): pairwise Heisenberg fit for bulk Fe1/3NbS2.
+"""SI Fig. S5(b): pairwise Heisenberg fit for bulk Fe1/3NbS2.
 
 Single Heisenberg fit using all five J's and ten DFT+U configurations.
   - Left y-axis: fitted J values (meV) with ±1σ error bars (one point per J).
@@ -32,7 +32,7 @@ rcParams.update({
 })
 
 # --- data: 10-config joint LSQ in the new cumulative order ---
-saved = np.load(Path(__file__).resolve().parents[2] / "data" / "figS2" / "J_fit_results.npz", allow_pickle=True)
+saved = np.load(Path(__file__).resolve().parents[2] / "data" / "figS5" / "J_fit_results.npz", allow_pickle=True)
 M_known    = saved["A"]
 dE_known   = saved["our_dE"]
 E_FM = -294.68026247
@@ -78,7 +78,7 @@ for k in N:
 print("Cumulative RMSE:", rmse.round(3))
 
 # --- figure ---
-# Aspect ratio of the former main-text Fig. 2 panel; the published Fig. S2(b)
+# Aspect ratio of the former main-text Fig. 2 panel; the published Fig. S5(b)
 # shows the same values on a wider canvas.
 fig, axL = plt.subplots(figsize=(6.48, 5.0))
 axR = axL.twinx()
@@ -115,9 +115,9 @@ axL.legend([j_pts, rmse_line], [r"$J$ (5-fit, 10 configs)", "cumulative RMSE"],
 fig.subplots_adjust(left=0.17, right=0.83, bottom=0.16, top=0.95)
 
 # --- save ---
-out_dir = Path(__file__).resolve().parents[2] / "output" / "figS2"
+out_dir = Path(__file__).resolve().parents[2] / "output" / "figS5"
 out_dir.mkdir(parents=True, exist_ok=True)
 for ext in ("pdf", "png"):
-    out = out_dir / f"figS2b_J_fit.{ext}"
+    out = out_dir / f"figS5b_J_fit.{ext}"
     fig.savefig(out, dpi=300)
     print(f"wrote {out}")

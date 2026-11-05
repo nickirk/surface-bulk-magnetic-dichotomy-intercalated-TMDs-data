@@ -49,7 +49,7 @@ WU_J = {
     "U=0.9": np.array([+0.57, -0.14,  +0.28, -0.16, -0.09]),
 }
 
-# Our DFT (Weber settings: ISMEAR=-5, PREC=Accurate, U=0.3; inputs in inputs/figS2/heisenberg_fit/)
+# Our DFT (Weber settings: ISMEAR=-5, PREC=Accurate, U=0.3; inputs in inputs/figS5/heisenberg_fit/)
 # ΔE per Fe vs FM (meV); a_zigzag and f_zigzag from last DAV/CGA step of un-terminated
 # but well-converged (dE < 0.2 meV/cell) runs.
 OUR_DFT = {
@@ -64,7 +64,7 @@ PHASES   = ["a_fm", "a_stripe", "f_stripe", "a_zigzag", "f_zigzag"]
 J_NAMES  = ["J1", "J2", "J1'", "J2'", "J3'"]
 S_EFF    = 2.0
 REPO = Path(__file__).resolve().parents[2]
-DATA_DIR = REPO / "inputs" / "figS2" / "heisenberg_fit"
+DATA_DIR = REPO / "inputs" / "figS5" / "heisenberg_fit"
 
 # Reference distances for shell classification (Å).
 # Computed from a=5.76, c=12.14 hex primitive, P6_322, Fe at 2c:
@@ -263,7 +263,7 @@ for N in range(1, 6):
 # ---------------------------------------------------------------------------
 # Save outputs
 # ---------------------------------------------------------------------------
-out_dir = REPO / "output" / "figS2"
+out_dir = REPO / "output" / "figS5"
 out_dir.mkdir(parents=True, exist_ok=True)
 np.savez(out_dir / "J_fit_results.npz",
          A=A, our_dE=our,
@@ -275,4 +275,4 @@ np.savez(out_dir / "J_fit_results.npz",
          J_cum_ours=J_cum_ours, pred_cum_ours=pred_cum_ours,
          J_cum_w03=J_cum_w03,   pred_cum_w03=pred_cum_w03,
          phases=np.array(PHASES), j_names=np.array(J_NAMES))
-print(f"\nWrote {out_dir / 'J_fit_results.npz'}  (the committed copy is data/figS2/J_fit_results.npz)")
+print(f"\nWrote {out_dir / 'J_fit_results.npz'}  (the committed copy is data/figS5/J_fit_results.npz)")
