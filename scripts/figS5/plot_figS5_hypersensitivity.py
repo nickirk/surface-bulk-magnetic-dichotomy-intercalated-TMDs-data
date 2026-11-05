@@ -56,19 +56,18 @@ def assemble() -> None:
     plt.rcParams.update({"font.family": "serif", "mathtext.fontset": "cm"})
 
     pt = 1 / 72  # inches per point
-    fig_w, fig_h = 633.9030113636, 393.4836136364
     box_w, box_h, y0 = 300.96, 361.44, 7.2
+    fig_w, fig_h = 633.9030113636, box_h + 2 * y0  # no panel titles
     panels = (
-        (7.2, PANEL_UNSYM, "(a)", r"as-received (SG $C2$, 0.58 mÅ off $P6_322$)"),
-        (325.8, PANEL_SYM, "(b)", r"symmetrized $P6_322$"),
+        (7.2, PANEL_UNSYM, "(a)"),
+        (325.8, PANEL_SYM, "(b)"),
     )
 
     fig = plt.figure(figsize=(fig_w * pt, fig_h * pt), dpi=100)
-    for x0, name, label, title in panels:
+    for x0, name, label in panels:
         ax = fig.add_axes((x0 / fig_w, y0 / fig_h, box_w / fig_w, box_h / fig_h))
         ax.imshow(Image.open(OUT_DIR / f"{name}.png"), aspect="auto")
         ax.set_axis_off()
-        ax.set_title(title, fontsize=12)
         ax.text(0.03, 0.99, label, transform=ax.transAxes, fontsize=15, ha="left", va="top")
 
     OUT.parent.mkdir(parents=True, exist_ok=True)
