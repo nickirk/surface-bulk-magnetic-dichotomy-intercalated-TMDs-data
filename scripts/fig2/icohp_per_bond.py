@@ -1,4 +1,4 @@
-"""Fig. 2(d) and Table S9: -ICOHP per Fe-S and Fe-Nb bond from LOBSTER.
+"""Fig. 2(d) and Table S7: -ICOHP per Fe-S and Fe-Nb bond from LOBSTER.
 
 Reads data/fig2/icohp/<system>/ICOHPLIST.lobster (LOBSTER input: inputs/fig2/icohp/lobsterin) for the
 40-atom bulk cell and the unrelaxed and relaxed 80-atom Fe-terminated slabs, all A-AFM at U = 0.3 eV.
