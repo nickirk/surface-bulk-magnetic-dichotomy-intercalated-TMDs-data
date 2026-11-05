@@ -1,4 +1,4 @@
-"""SI Fig. S2, slab band structures: raw spin-polarized VASP EIGENVAL, drawn with the Fig. 4(a) style.
+"""SI Fig. S4, slab band structures: raw spin-polarized VASP EIGENVAL, drawn with the Fig. 4(a) style.
 
 Three panels, each selected by name:
     asym_M0GK0  asymmetric Fe-terminated slab, M0-Gamma-K0 (the Fig. 4(a) in-plane path)
@@ -6,9 +6,9 @@ Three panels, each selected by name:
     sym_M0GP    symmetric slab, M0-Gamma-P with P = (5/12, 1/6, 0) (primitive), the midpoint of the
                 M0-K0 zone edge; Gamma-P crosses the region where the symmetric slab is spin split
 
-    python3 scripts/figS2/plot_figS2_slab_bands.py sym_M0GP data/figS2/slab_sym_M0GP_EIGENVAL output/figS2/slab_sym_bands_M0GP.pdf
+    python3 scripts/figS4/plot_figS4_slab_bands.py sym_M0GP data/figS4/slab_sym_M0GP_EIGENVAL output/figS4/slab_sym_bands_M0GP.pdf
 
-Spin channel 1 is plotted as up (red), as in the Fig. 4(c) and Fig. S1 maps of the same slabs.
+Spin channel 1 is plotted as up (red), as in the Fig. 4(c) and Fig. S3 maps of the same slabs.
 """
 
 from __future__ import annotations

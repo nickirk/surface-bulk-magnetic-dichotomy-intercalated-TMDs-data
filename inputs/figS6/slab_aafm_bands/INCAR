@@ -1,0 +1,26 @@
+# Fig. S6: bands of the relaxed A-AFM Fe-terminated slab (U = 0.3 eV) along Gamma-K0 of the primitive
+# NbS2 cell. Non-self-consistent from the ground state in inputs/fig2/slab_U0.3_aafm (ISMEAR = -5).
+# ISYM = 0 and LWAVE for unfolding; LORBIT = 11 for the orbital projections.
+NCORE = 8
+KPAR = 4
+PREC = Accurate
+ICHARG = 11
+LCHARG = .FALSE.
+LWAVE = .TRUE.
+ISMEAR = 0
+SIGMA = 0.05
+LORBIT = 11
+NBANDS = 480
+ENCUT = 650
+LREAL = .FALSE.
+ISYM = 0
+GGA = PE
+ISPIN = 2
+MAGMOM = 2.758 -2.783 -2.755 2.802 -2.786 2.555 -2.762 2.563  24*0.0  48*0.0
+LASPH = .TRUE.
+LDAU = .TRUE.
+LDAUTYPE = 2
+LMAXMIX = 4
+LDAUL = 2 0 0
+LDAUU = 0.3 0 0
+LDAUJ = 0.0 0 0
