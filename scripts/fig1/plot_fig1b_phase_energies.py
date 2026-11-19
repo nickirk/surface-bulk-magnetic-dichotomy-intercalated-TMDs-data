@@ -8,6 +8,8 @@ import matplotlib.pyplot as plt
 
 
 MATERIALS = ["Fe1_3NbS2", "Co1_3NbS2", "Co1_3TaS2", "Ni1_3NbS2"]
+# Fig. 1(b) shows the first three; Ni1/3NbS2 stays in phase_energies.csv (Table S1).
+PLOTTED_MATERIALS = ["Fe1_3NbS2", "Co1_3NbS2", "Co1_3TaS2"]
 MATERIAL_LABELS = {
     "Fe1_3NbS2": r"$\mathrm{Fe}_{1/3}\mathrm{Nb}\mathrm{S}_2$",
     "Co1_3NbS2": r"$\mathrm{Co}_{1/3}\mathrm{Nb}\mathrm{S}_2$",
@@ -112,7 +114,8 @@ def make_plot(path: Path, rows):
             "axes.linewidth":    2.0,
         }
     )
-    x_positions = {material: idx for idx, material in enumerate(MATERIALS)}
+    rows = [row for row in rows if row["material"] in PLOTTED_MATERIALS]
+    x_positions = {material: idx for idx, material in enumerate(PLOTTED_MATERIALS)}
     # Tall aspect for Fig. 1 panel (b): the composite uses a stacked
     # structure column on the left, so this panel should match that height
     # instead of forcing the structure column to shrink.
@@ -148,7 +151,7 @@ def make_plot(path: Path, rows):
 
     ax.set_xticks(
         list(x_positions.values()),
-        [MATERIAL_LABELS[material] for material in MATERIALS],
+        [MATERIAL_LABELS[material] for material in PLOTTED_MATERIALS],
     )
     ax.set_ylabel(r"$\Delta E$ (meV/mag. ion)")
     ax.axhline(0.0, color="0.75", linewidth=1)

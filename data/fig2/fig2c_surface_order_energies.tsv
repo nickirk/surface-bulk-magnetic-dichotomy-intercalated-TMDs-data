@@ -1,5 +1,5 @@
 # Fig. 2(c): energies of four orders of the upper two Fe layers (lower two Fe layers fixed in stripe order).
-# Fe-terminated 80-atom slab: E - E(A-AFM) in meV per cell, as in Table S8 (PBE+U U = 0.3 eV with tetrahedron
+# Fe-terminated 80-atom slab: E - E(A-AFM) in meV per cell, as in Table S6 (PBE+U U = 0.3 eV with tetrahedron
 # integration; r2SCAN without U on the PBE+U-relaxed geometries). NbS2-terminated 98-atom slab: total energies
 # E0 (eV) of the relaxed PBE+U tetrahedron single points, lowest solution found for each order.
 # Fig. 2(c) plots E - E(stripe) per Fe (eight Fe in either slab).

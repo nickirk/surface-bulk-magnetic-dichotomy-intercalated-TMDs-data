@@ -36,8 +36,8 @@ final arrangement of panels were composed separately.
 
 Every script above was run on this repository as released and compared pixel by pixel with the
 renders of the scripts that produced the manuscript figures: 0 differing pixels in every panel, except
-Fig. 2 and Fig. S5(b). Their published panels were restyled after these renders; the scripts plot the
-same values.
+Fig. 1, Fig. 2 and Fig. S5(b). Their published panels were restyled after these renders; the scripts plot the
+same values. Fig. 1(b) shows three compounds; `phase_energies.csv` also holds Ni1/3NbS2 (Table S1).
 
 ## How the derived data were produced
 
@@ -65,6 +65,7 @@ same values.
 
 ## Notes
 
+- **Fig. S1 (LEED) is experimental and is not included here.**
 - **Experimental maps for Fig. 3 are not redistributed.** Build them from the published sources:
 
       # Co1/3NbS2: Figure6.xlsx from the dataset of Popcevic et al., Phys. Rev. B 105, 155114 (2022)
