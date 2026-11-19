@@ -77,3 +77,11 @@ same values. Fig. 1(b) shows three compounds; `phase_energies.csv` also holds Ni
   They write to `output/fig3_experiment/`, where the Fig. 3 script reads them. The Sas extraction
   expects the figure image used for the manuscript (pixel bounds are recorded in the script).
 - The Fig. 2(b) slab energies use one fixed slab geometry for all U. See `docs/conventions.md`.
+
+## Licence and citation
+
+Everything in this repository (data, scripts and VASP inputs) is released under the Creative Commons
+Attribution 4.0 International licence (CC BY 4.0); see `LICENSE`. If you use it, please cite the article
+"Surface–Bulk Magnetic Dichotomy in Intercalated Transition Metal Dichalcogenides". The ARPES cut in
+`data/fig1/arpes_FNS030n2_88combine.txt` was measured for W. Li et al., Phys. Rev. Lett. 136, 216503
+(2026), doi:10.1103/99yr-nqbx; please cite that work as well when using it.
